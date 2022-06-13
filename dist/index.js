@@ -59,4 +59,29 @@ const user1 = {
 // Using a interface with a function -  the interface is defining what can be passed to these variable
 const add = (x, y) => x + y;
 const sub = (x, y) => x - y;
-// Classes
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    register() {
+        return `${this.name} is now registered.`;
+    }
+}
+const isaiah = new Person(1, "Isaiah Wright");
+const mike = new Person(2, "Mike Jordan");
+// Sub Class
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(3, "Isaiah", "Developer");
+// Generics - used to build reusable components
+function getArray(items) {
+    // The T in this case is a placeholder for an implicit type, it ensure that there cant be strings in the number array and vise versa
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(["Isaiah", "ohtoo", "zay"]);

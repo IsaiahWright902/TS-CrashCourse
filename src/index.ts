@@ -88,3 +88,48 @@ const add: MathFunc = (x: number, y: number): number => x + y;
 const sub: MathFunc = (x: number, y: number): number => x - y;
 
 // Classes
+
+interface PersonInterface {
+  // You can add a interface to a class to add extra validation, i this case now if I was to pass a number to register it would throw an error
+  id: number;
+  name: string;
+  register(): string;
+}
+
+class Person implements PersonInterface {
+  id: number;
+  name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  register() {
+    return `${this.name} is now registered.`;
+  }
+}
+
+const isaiah = new Person(1, "Isaiah Wright");
+const mike = new Person(2, "Mike Jordan");
+
+// Sub Class
+class Employee extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const emp = new Employee(3, "Isaiah", "Developer");
+
+// Generics - used to build reusable components
+function getArray<T>(items: T[]): T[] {
+  // The T in this case is a placeholder for an implicit type, it ensure that there cant be strings in the number array and vise versa
+  return new Array().concat(items);
+}
+
+let numArray = getArray<number>([1, 2, 3, 4]);
+let strArray = getArray<string>(["Isaiah", "ohtoo", "zay"]);
