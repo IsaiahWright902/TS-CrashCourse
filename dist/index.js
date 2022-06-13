@@ -59,3 +59,4 @@ const user1 = {
 // Using a interface with a function -  the interface is defining what can be passed to these variable
 const add = (x, y) => x + y;
 const sub = (x, y) => x - y;
+// Classes
